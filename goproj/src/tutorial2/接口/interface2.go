@@ -1,31 +1,32 @@
 package main
 
 import (
-        "fmt"
+	"fmt"
 )
 
 type Stringer interface {
-        String() string
+	String() string
 }
 
 type Printer interface {
-        Stringer
-        Print()
+	Stringer
+	Print()
 }
 type User struct {
-        id int
-        name string
+	id   int
+	name string
 }
 
 func (self *User) String() string {
-        fmt.Println(*self)      //{1 Tom}
-        fmt.Println(self.id)
-        return fmt.Sprintf("user %d, %s", self.id, self.name)
+	fmt.Println(*self) //{1 Tom}
+	fmt.Println(self.id)
+	return fmt.Sprintf("user %d, %s", self.id, self.name)
 }
 
 func (self *User) Print() {
-        fmt.Println(self.String())
+	fmt.Println(self.String())
 }
+
 /*
 type User2 struct {
         id int
@@ -40,16 +41,16 @@ t3.Print()
 */
 
 func main() {
-        fmt.Println("hello world")
+	fmt.Println("hello world")
 
-        var t Printer = &User{1, "Tom"}
-        var t2 Printer = new(User)
-        t.Print()
-        t2.Print()
-
+	var t Printer = &User{1, "Tom"}
+	var t2 Printer = new(User)
+	t.Print()
+	t2.Print()
 
 }
 
 func intertest(printer Printer) {
-                fmt.Println("type test")
+	fmt.Println("type test")
+
 }
