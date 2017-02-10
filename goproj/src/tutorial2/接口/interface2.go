@@ -45,8 +45,11 @@ func main() {
 
 	var t Printer = &User{1, "Tom"}
 	var t2 Printer = new(User)
+
 	t.Print()
 	t2.Print()
+
+	fmt.Println("test:", t2)
 
 }
 
